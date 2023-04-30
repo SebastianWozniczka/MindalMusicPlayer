@@ -7,13 +7,14 @@ on:
       branches: [ "master" ]
 
 jobs:
-  Unit-test:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-java@v1
-      with:
-        distribution: 'zulu'
-        java-version: 17
-    - name: Run unit tests
-      run: ./gradlew test
+  check:
+    Unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          distribution: 'zulu'
+          java-version: 17
+      - name: Run unit tests
+        run: ./gradlew test
