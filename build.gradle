@@ -1,22 +1,43 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+//buildscript {
+//
+//    repositories {
+//        mavenCentral()
+//        google()
+//        gradlePluginPortal()
+//    }
+//
+//    dependencies {
+//        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.0-RC2"
+//    }
+//}
+//
+//plugins {
+//    id 'com.android.application' version '7.4.2' apply false
+//    id 'com.android.library' version '7.4.2' apply false
+//    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+//    id 'io.gitlab.arturbosch.detekt' version '1.23.0-RC2' apply true
+//}
+
 buildscript {
 
     repositories {
         mavenCentral()
         google()
-        gradlePluginPortal()
     }
-
     dependencies {
-        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.0-RC2"
+        classpath libs.gradle
+        classpath libs.kotlin.gradle.plugin
+        classpath libs.androidx.navigation.safeargs.plugin
     }
 }
-
 plugins {
-    id 'com.android.application' version '7.4.2' apply false
-    id 'com.android.library' version '7.4.2' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
-    id 'io.gitlab.arturbosch.detekt' version '1.23.0-RC2' apply true
+    alias libs.plugins.github.ben.manes
+    alias libs.plugins.google.devtools.ksp apply false
+}
+
+tasks.register('clean', Delete) {
+    delete rootProject.buildDir
 }
 
 
