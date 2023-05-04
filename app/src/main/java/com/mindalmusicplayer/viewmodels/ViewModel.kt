@@ -4,6 +4,8 @@ class ViewModel {
 
     private fun doSome() {
 
+
+
         TODO("1. Add dependency" +
                 "2. Add detekt" +
                 "3. Add arch" +
